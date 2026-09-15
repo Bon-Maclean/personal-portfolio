@@ -7,35 +7,6 @@ const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
-/* --------------------------------------------
-   1) Instrument readout — small live-looking
-      numbers in the hero, purely cosmetic but
-      demonstrates timers + DOM updates.
-   -------------------------------------------- */
-function initReadout() {
-  const altEl = document.getElementById("rdAlt");
-  const hdgEl = document.getElementById("rdHdg");
-  const machEl = document.getElementById("rdMach");
-
-  if (!altEl || !hdgEl || !machEl || prefersReducedMotion) return;
-
-  let altitude = 37000;
-  let heading = 274;
-  let mach = 0.82;
-
-  setInterval(() => {
-    // small, bounded random walk so the numbers feel "live"
-    // without ever looking broken or alarming
-    altitude += Math.round((Math.random() - 0.5) * 40);
-    heading = (heading + (Math.random() - 0.5) * 1.2 + 360) % 360;
-    mach += (Math.random() - 0.5) * 0.004;
-    mach = Math.min(0.86, Math.max(0.78, mach));
-
-    altEl.textContent = `${Math.round(altitude).toLocaleString()} FT`;
-    hdgEl.textContent = `${Math.round(heading)}°`;
-    machEl.textContent = mach.toFixed(2);
-  }, 1800);
-}
 
 /* --------------------------------------------
    2) Scroll reveal for project cards and
@@ -230,7 +201,6 @@ function initNovelProgress() {
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
-  initReadout();
   initScrollReveal();
   initActiveNav();
   initProjectSliders();

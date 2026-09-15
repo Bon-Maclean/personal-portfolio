@@ -169,7 +169,7 @@ button:focus-visible {
 }
 
 .hero-inner,
-.hero-readout {
+.hero-headshot {
   position: relative;
   z-index: 1;
 }
@@ -234,27 +234,31 @@ button:focus-visible {
 }
 .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
 
-/* instrument readout card, mimics a cockpit tape */
-.hero-readout {
-  border: 1px solid var(--line);
-  background: var(--bg-card);
-  border-radius: 4px;
-  padding: 20px 22px;
-  font-size: 13px;
+/* ============================================
+   HERO HEADSHOT
+   ============================================ */
+
+.hero-headshot {
+  width: 100%;
+  max-width: 300px;
+  justify-self: end;
+  align-self: center;
   margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg-card);
 }
 
-.readout-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 9px 0;
-  border-bottom: 1px dashed var(--line-soft);
-  color: var(--text-dim);
-  letter-spacing: 0.04em;
+.hero-headshot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
-.readout-row:last-child { border-bottom: none; }
-.readout-row span:last-child { color: var(--text); }
-.readout-row .ok { color: var(--ok); }
+
 
 /* ============================================
    SECTIONS (shared)
